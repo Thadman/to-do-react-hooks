@@ -1,5 +1,6 @@
 import React from "react";
 
+// generating a random id number
 function generateId() {
   return "_" + Math.random().toString(36).substr(2, 9);
 }
@@ -9,6 +10,7 @@ export default function Todo() {
   const [todo, setToDo] = React.useState([]);
   const [input, setInput] = React.useState("");
 
+  // handling what will happen when the submit button is clicked
   const handleSubmit = () => {
     setToDo((todo) =>
       todo.concat({
