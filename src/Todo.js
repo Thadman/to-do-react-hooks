@@ -5,6 +5,7 @@ function generateId() {
 }
 
 export default function Todo() {
+  // setting state with useState, passing in the initial value to it. and area ble ti update state with the setter function.
   const [todo, setToDo] = React.useState([]);
   const [input, setInput] = React.useState("");
 
@@ -15,10 +16,11 @@ export default function Todo() {
         id: generateId(),
       })
     );
-
+    // resetting state
     setInput("");
   };
 
+  // to remove the todo item using the id, making sure to delete the correct one
   const removeTodo = (id) => setToDo((todo) => todo.filter((t) => t.id !== id));
 
   return (
@@ -32,6 +34,7 @@ export default function Todo() {
       <button onClick={handleSubmit}>Add</button>
 
       <ul>
+        {/* mapping through the items and displaying them on the screen, and passing the id as the unique ket identifier */}
         {todo.map(({ text, id }) => (
           <li key={id}>
             <span>{text}</span>
